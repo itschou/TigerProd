@@ -3,7 +3,7 @@
 @section('content')
     <x-navbarx />
 
-    <div class="bg container py-5">
+    <div class="">
         @if (Auth::user()->admin == false)
             <x-dashboard :users='$users' />
         @else
