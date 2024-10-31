@@ -17,7 +17,7 @@
     </div>
 
     <div
-      class="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24 px-3"
+      class="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24 px-3 gap-2"
     >
       <ul class="flex flex-wrap justify-center gap-4 text-sm lg:justify-end">
         <li>

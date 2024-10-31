@@ -630,11 +630,11 @@
   <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-5">
       Découvrez nos productions
   </h2>
-<div class="flex flex-wrap gap-3 justify-center items-center w-full">
+<div class="flex flex-wrap gap-3 justify-center items-center w-full px-2 lg:px-0">
 
 
   @foreach ($realisations as $realisation)
-  <div class="max-w-3xl w-full h-80 group relative overflow-hidden rounded-2xl">
+  <div class="max-w-3xl w-full lg:h-80 h-fit group relative overflow-hidden rounded-2xl">
 
   
   <a href="{{ $realisation->youtube_link }}" target="_blank" class="block bg-black">
