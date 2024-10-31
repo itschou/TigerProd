@@ -159,7 +159,7 @@
 
         <li>
           <a
-            href="https://www.deezer.com/en/artist/10142758?deferredFl=1"
+            href="https://deezer.com/en/artist/10142758"
             rel="noreferrer"
             target="_blank"
             class="text-gray-50 transition hover:text-yellow-300"

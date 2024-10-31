@@ -2,7 +2,7 @@
   <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
     <a class="block text-yellow-600" href="/">
       <span class="sr-only">Home</span>
-      <img src="/assets/img/logo_old.webp" width="500px" height="500px" loading="lazy" class="w-full h-10" />
+      <img src="/assets/img/logo_old.webp" width="500px" height="500px" loading="lazy" class="w-full h-10" alt="Logo of tigerProd" title="Logo tigerprod.ma" />
     </a>
 
     <div class="flex flex-1 items-center justify-end md:justify-between">

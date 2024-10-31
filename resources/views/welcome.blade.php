@@ -289,6 +289,7 @@
       <div class="grid grid-cols-2 gap-4 md:grid-cols-1 lg:grid-cols-2">
         <img
           alt="Representatif image of happy client on TigerProd"
+          title="Representatif image of happy client on TigerProd"
           src="/assets/img/happyClient1.webp"
           width="800px" height="1200px"
           loading="lazy"
@@ -297,8 +298,10 @@
 
         <img
           alt="Representatif image of happy client 2 on TigerProd"
+          title="Representatif image of happy client 2 on TigerProd"
           src="/assets/img/happyClient2.webp"
           width="800px" height="1200px"
+          loading="lazy"
           class="h-40 w-full object-cover sm:h-56 md:h-full rounded-xl object-top"
         />
       </div>
@@ -350,8 +353,11 @@
       <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
         <div class="flex items-center gap-4">
           <img
-            alt=""
-            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+          alt="Image of sahar seddiki in tigerprod.ma"
+          title="Image of sahar seddiki in tigerprod.ma"
+            width="250px" height="250px"
+          loading="lazy"
+            src="/assets/img/clients/sahar_seddiki.webp"
             class="size-14 rounded-full object-cover"
           />
 
@@ -409,22 +415,23 @@
               </svg>
             </div>
 
-            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+            <p class="mt-0.5 text-lg font-medium text-gray-900">Sahar Seddiki</p>
           </div>
         </div>
 
         <p class="mt-4 text-gray-700">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
-          consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
-          error officiis atque voluptates magnam!
+        Travailler avec TigerProd a été une superbe expérience. Je recommande ce studio, ils m'ont guidé à chaque étape du processus.
         </p>
       </blockquote>
 
       <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
         <div class="flex items-center gap-4">
-          <img
-            alt=""
-            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        <img
+        alt="Image of youssef benhajou in tigerprod.ma"
+          title="Image of youssef benhajou in tigerprod.ma"
+            width="250px" height="250px"
+          loading="lazy"
+            src="/assets/img/clients/youssef_benhajou.webp"
             class="size-14 rounded-full object-cover"
           />
 
@@ -482,22 +489,23 @@
               </svg>
             </div>
 
-            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+            <p class="mt-0.5 text-lg font-medium text-gray-900">Youssef Benhajjou</p>
           </div>
         </div>
 
         <p class="mt-4 text-gray-700">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
-          consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
-          error officiis atque voluptates magnam!
+        Mon expérience avec TigerProd a été unique : ils m'ont accordé tout le temps nécessaire pour mener mon projet à bien.
         </p>
       </blockquote>
 
       <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
         <div class="flex items-center gap-4">
-          <img
-            alt=""
-            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        <img
+        alt="Image of black jaguar in tigerprod.ma"
+          title="Image of black jaguar in tigerprod.ma"
+            width="250px" height="250px"
+          loading="lazy"
+            src="/assets/img/clients/black_jaguar.webp"
             class="size-14 rounded-full object-cover"
           />
 
@@ -555,14 +563,12 @@
               </svg>
             </div>
 
-            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+            <p class="mt-0.5 text-lg font-medium text-gray-900">Black Jaguar</p>
           </div>
         </div>
 
         <p class="mt-4 text-gray-700">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
-          consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
-          error officiis atque voluptates magnam!
+        TigerProd m'a accompagné sur plusieurs projets, et c'est le seul studio avec lequel je me sens à l'aise pour travailler en toute sérénité. Je le recommande vivement.
         </p>
       </blockquote>
     </div>
