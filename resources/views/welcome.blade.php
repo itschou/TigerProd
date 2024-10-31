@@ -1,5 +1,48 @@
 @php
     use App\Models\site;
+
+    $questions = [
+    [
+        'question' => 'Quels services proposez-vous dans votre studio d’enregistrement ?',
+        'answer' => 'Nous offrons des services d’enregistrement audio, de mixage, de mastering et de production musicale.',
+    ],
+    [
+        'question' => 'Dois-je apporter mon propre équipement ?',
+        'answer' => 'Notre studio est équipé de matériel professionnel, mais vous pouvez apporter vos propres instruments ou équipements si vous le souhaitez.',
+    ],
+    [
+        'question' => 'Comment puis-je réserver une session d’enregistrement ?',
+        'answer' => 'Vous pouvez réserver directement en ligne via notre site web ou nous contacter par téléphone pour planifier une session.',
+    ],
+    [
+        'question' => 'Quels sont les tarifs pour une session d’enregistrement ?',
+        'answer' => 'Nos tarifs varient en fonction de la durée et du type de projet. Contactez-nous pour obtenir un devis personnalisé.',
+    ],
+    [
+        'question' => 'Quelle est la durée minimale pour une session d’enregistrement ?',
+        'answer' => 'La durée minimale est d’une heure pour garantir un temps suffisant pour l’installation et la préparation.',
+    ],
+    [
+        'question' => 'Proposez-vous des services de post-production ?',
+        'answer' => 'Oui, nous offrons des services de mixage et de mastering pour finaliser vos enregistrements.',
+    ],
+    [
+        'question' => 'Puis-je avoir accès aux fichiers bruts après l’enregistrement ?',
+        'answer' => 'Oui, nous vous fournirons les fichiers bruts sur demande, sous réserve de certaines conditions.',
+    ],
+    [
+        'question' => 'Y a-t-il des frais supplémentaires pour les retouches ?',
+        'answer' => 'Les retouches de base sont incluses, mais des frais supplémentaires peuvent s’appliquer pour des modifications importantes.',
+    ],
+    [
+        'question' => 'Offrez-vous des services pour les artistes indépendants ?',
+        'answer' => 'Oui, notre studio accueille tous les types d’artistes, qu’ils soient indépendants ou signés par un label.',
+    ],
+    [
+        'question' => 'Puis-je visiter le studio avant de réserver une session ?',
+        'answer' => 'Bien sûr ! Nous serions ravis de vous faire visiter notre studio. Contactez-nous pour organiser une visite.',
+    ],
+];
 @endphp
 
 @extends('layouts.app')
@@ -7,7 +50,7 @@
 @section('content')
     <x-Navbar />
 
-<section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center">
+<section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center pt-10">
   <div class="p-8 md:p-12 lg:px-16 lg:py-24">
     <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
     <h1 class="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -34,7 +77,7 @@
 
   <img
     alt="Representatif image of tigerprod studio rabat"
-    src="https://images.unsplash.com/photo-1484959014842-cd1d967a39cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    src="/assets/img/studio.webp"
     class="h-full w-full object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-l-[30px] md:h-[calc(100%_-_4rem)] md:rounded-l-[60px]"
     loading="lazy"
     width="1200px" height="800px"
@@ -42,7 +85,7 @@
 </section>
 
     
-    <section class="bg-gray-900 text-white my-16 rounded-3xl mx-3">
+    <section class="bg-gray-900 text-white my-16 rounded-3xl mx-3" id="services" data-aos="fade-up">
   <div class="px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
     <div class="max-w-xl">
       <h2 class="text-3xl font-bold sm:text-4xl">Ce qui fait notre spécificité</h2>
@@ -74,8 +117,7 @@
           <h2 class="text-lg font-bold">COMPOSITION MUSICALE</h2>
 
           <p class="mt-1 text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-            possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+          Création de mélodies uniques qui capturent des émotions et racontent des histoires, tout en reflétant l'identité de l'artiste.
           </p>
         </div>
       </div>
@@ -99,8 +141,7 @@
           <h2 class="text-lg font-bold">DIRECTION ARTISTIQUE</h2>
 
           <p class="mt-1 text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-            possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+          Vision cohérente et esthétique d'un projet musical, unifiant éléments visuels et sonores pour renforcer l'impact artistique global.
           </p>
         </div>
       </div>
@@ -124,8 +165,7 @@
           <h2 class="text-lg font-bold">ENREGISTREMENT</h2>
 
           <p class="mt-1 text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-            possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+          Capture précise des performances musicales, utilisant un équipement de pointe pour transformer des idées en réalité sonore.
           </p>
         </div>
       </div>
@@ -154,8 +194,7 @@
           <h2 class="text-lg font-bold">MIXAGE</h2>
 
           <p class="mt-1 text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-            possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+          Équilibrage des niveaux sonores et des effets pour créer une harmonie parfaite, faisant briller chaque instrument et voix.
           </p>
         </div>
       </div>
@@ -180,11 +219,10 @@
         </span>
 
         <div>
-          <h2 class="text-lg font-bold">Clip musical</h2>
+          <h2 class="text-lg font-bold">CLIP MUSICAL</h2>
 
           <p class="mt-1 text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-            possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+          Vitrine visuelle d'une chanson, combinant créativité et storytelling pour engager le public et enrichir l'expérience musicale.
           </p>
         </div>
       </div>
@@ -212,11 +250,10 @@
         </span>
 
         <div>
-          <h2 class="text-lg font-bold">Lorem, ipsum dolor.</h2>
+          <h2 class="text-lg font-bold">SUIVI ARTISTIQUE</h2>
 
           <p class="mt-1 text-sm text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-            possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+          Accompagnement personnalisé pour optimiser le développement créatif et stratégique d'un artiste, assurant une carrière durable et réussie.
           </p>
         </div>
       </div>
@@ -224,27 +261,26 @@
   </div>
 </section>
 
-<section>
+<section data-aos="slide-left">
   <div class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      <div class="bg-blue-600 p-8 md:p-12 lg:px-16 lg:py-24">
+      <div class="bg-yellow-600 p-8 md:p-12 lg:px-16 lg:py-24 rounded-xl">
         <div class="mx-auto max-w-xl text-center">
-          <h2 class="text-2xl font-bold text-white md:text-3xl">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit
-          </h2>
+        <h2 class="text-2xl font-bold text-white md:text-3xl">
+    Nos résultats sont notre meilleure publicité
+</h2>
 
-          <p class="hidden text-white/90 sm:mt-4 sm:block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam
-            sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet
-            volutpat quisque ut interdum tincidunt duis.
-          </p>
+<p class="hidden text-white/90 sm:mt-4 sm:block">
+    Chez nous, la satisfaction client est primordiale. Nos résultats parlent d'eux-mêmes, et nos clients reviennent systématiquement travailler avec nous. Grâce à notre engagement envers l'excellence, nous avons établi des partenariats durables qui témoignent de la confiance que nos clients placent en notre expertise.
+</p>
+
 
           <div class="mt-4 md:mt-8">
             <a
-              href="#"
-              class="inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400"
+              href="/home"
+              class="inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-yellow-500 transition hover:bg-transparent hover:text-black focus:outline-none focus:ring focus:ring-yellow-400"
             >
-              Get Started Today
+              Reserver ma session
             </a>
           </div>
         </div>
@@ -252,21 +288,383 @@
 
       <div class="grid grid-cols-2 gap-4 md:grid-cols-1 lg:grid-cols-2">
         <img
-          alt=""
-          src="https://images.unsplash.com/photo-1621274790572-7c32596bc67f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80"
-          class="h-40 w-full object-cover sm:h-56 md:h-full"
+          alt="Representatif image of happy client on TigerProd"
+          src="/assets/img/happyClient1.webp"
+          width="800px" height="1200px"
+          loading="lazy"
+          class="h-40 w-full object-cover sm:h-56 md:h-full rounded-xl object-center"
         />
 
         <img
-          alt=""
-          src="https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-          class="h-40 w-full object-cover sm:h-56 md:h-full"
+          alt="Representatif image of happy client 2 on TigerProd"
+          src="/assets/img/happyClient2.webp"
+          width="800px" height="1200px"
+          class="h-40 w-full object-cover sm:h-56 md:h-full rounded-xl object-top"
         />
       </div>
     </div>
   </div>
 </section>
 
+<section class="mx-auto bg-gray-900 px-4 py-8 sm:px-6 sm:py-12 lg:px-8" >
+  <div class="mx-auto  text-center">
+  <h2 class="text-3xl font-bold text-gray-50 sm:text-4xl">Nos clients sont tous satisfaits</h2>
+
+<p class="mt-4 text-gray-100 sm:text-xl">
+    Depuis notre création, nous nous engageons à offrir un service de qualité qui répond aux attentes et aux exigences de chaque client. Chaque collaboration est unique, et notre priorité est d'assurer des résultats à la hauteur des ambitions de nos clients.
+</p>
+
+  </div>
+
+  <dl class="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="flex flex-col rounded-lg bg-yellow-50 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Projets Enregistrés</dt>
+        <dd class="text-4xl font-extrabold text-yellow-600 md:text-5xl">+150</dd>
+    </div>
+
+    <div class="flex flex-col rounded-lg bg-yellow-50 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Artistes Collaborateurs</dt>
+        <dd class="text-4xl font-extrabold text-yellow-600 md:text-5xl">+75</dd>
+    </div>
+
+    <div class="flex flex-col rounded-lg bg-yellow-50 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Heures d'Enregistrement</dt>
+        <dd class="text-4xl font-extrabold text-yellow-600 md:text-5xl">+1,200</dd>
+    </div>
+
+    <div class="flex flex-col rounded-lg bg-yellow-50 px-4 py-8 text-center">
+        <dt class="order-last text-lg font-medium text-gray-500">Évaluations Positives</dt>
+        <dd class="text-4xl font-extrabold text-yellow-600 md:text-5xl">98%</dd>
+    </div>
+</dl>
+
+</section>
+
+<section class="bg-white" id="avis" data-aos="flip-up">
+  <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+    <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+    Ce que nos clients disent de nous
+    </h2>
+
+    <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+      <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+        <div class="flex items-center gap-4">
+          <img
+            alt=""
+            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+            class="size-14 rounded-full object-cover"
+          />
+
+          <div>
+            <div class="flex justify-center gap-0.5 text-green-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+            </div>
+
+            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-gray-700">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
+          consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
+          error officiis atque voluptates magnam!
+        </p>
+      </blockquote>
+
+      <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+        <div class="flex items-center gap-4">
+          <img
+            alt=""
+            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+            class="size-14 rounded-full object-cover"
+          />
+
+          <div>
+            <div class="flex justify-center gap-0.5 text-green-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+            </div>
+
+            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-gray-700">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
+          consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
+          error officiis atque voluptates magnam!
+        </p>
+      </blockquote>
+
+      <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+        <div class="flex items-center gap-4">
+          <img
+            alt=""
+            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+            class="size-14 rounded-full object-cover"
+          />
+
+          <div>
+            <div class="flex justify-center gap-0.5 text-green-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
+              </svg>
+            </div>
+
+            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-gray-700">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a
+          consequuntur recusandae ab saepe illo est quia obcaecati neque quibusdam eius accusamus
+          error officiis atque voluptates magnam!
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 flex flex-col items-center w-full" id="faq">
+<h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+    Questions fréquentes
+    </h2>
+<div class="divide-y divide-gray-100 max-w-[50%] w-full rounded-xl border border-gray-100 bg-white mt-5">
+@foreach ($questions as $item)
+  <details class="group p-6 [&_summary::-webkit-details-marker]:hidden">
+    <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+      <h3 class="text-lg font-medium">{{ $item['question'] }}</h3>
+
+      <span class="relative size-5 shrink-0">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute inset-0 size-5 opacity-100 group-open:opacity-0"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute inset-0 size-5 opacity-0 group-open:opacity-100"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </span>
+    </summary>
+
+    <p class="mt-4 leading-relaxed text-gray-700">
+    {{ $item['answer'] }}
+    </p>
+  </details>
+  @endforeach
+</div>
+</section>
+
+<section class="bg-white py-20" id="production" data-aos="fade-down">
+  <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-5">
+      Découvrez nos productions
+  </h2>
+<div class="flex flex-wrap gap-3 justify-center items-center w-full">
+
+
+  @foreach ($realisations as $realisation)
+  <div class="max-w-3xl w-full h-80 group relative overflow-hidden rounded-2xl">
+
+  
+  <a href="{{ $realisation->youtube_link }}" target="_blank" class="block bg-black">
+  <img
+    alt="{{ $realisation->music_name }} by {{ $realisation->artist_name }}" 
+    title="Thumbnail of {{ $realisation->music_name }} by {{ $realisation->artist_name }}"
+    src="https://img.youtube.com/vi/{{ $realisation->getYoutubeId() }}/sddefault.jpg"
+    width="1200px" height="800px"
+    loading="lazy"
+    class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-all duration-400 ease-in-out "
+/>
+
+
+  <div class="relative p-4 sm:p-6 lg:p-8">
+    <p class="text-sm font-medium uppercase tracking-widest text-yellow-500">{{$realisation->artist_name}}</p>
+
+    <p class="text-xl font-bold text-white sm:text-2xl">{{$realisation->music_name}}</p>
+
+  </div>
+</a>
+</div>
+  @endforeach
+</div>
+
+</section>
+
 
     <x-footer />
 @endsection
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  AOS.init({
+    duration: 1000, // Durée de l'animation en ms
+    once: true,     // Animation une seule fois
+  });
+});
+</script>

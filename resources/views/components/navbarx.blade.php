@@ -1,7 +1,7 @@
 @if (Auth::user()->admin == false)
     <nav class="bg-gray-800 text-white shadow">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <a class="text-2xl font-bold" href="/home">TigerProd</a>
+            <a class="text-2xl font-bold" href="/">TigerProd</a>
             <button class="navbar-toggler block lg:hidden text-white focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,7 +33,7 @@
 @else
     <nav class="bg-gray-800 text-white shadow">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <a class="text-2xl font-bold" href="/home">TigerProd - <span class="text-red-500">Administrateur</span></a>
+            <a class="text-2xl font-bold" href="/">TigerProd - <span class="text-red-500">Administrateur</span></a>
             <button class="navbar-toggler block lg:hidden text-white focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

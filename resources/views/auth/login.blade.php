@@ -8,6 +8,7 @@
       <p class="mt-4 text-gray-500">
         Connecte-toi pour accéder à ton compte.
       </p>
+      <a href="/" class="underline">Page d'accueil</a>
     </div>
 
     <form method="POST" action="{{ route('login') }}" class="mx-auto mt-8 max-w-md space-y-4">

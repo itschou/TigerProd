@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
 </head>
 
 <body id="page-top">
-    <main class="bg-gray-50">
+    <main class="bg-gray-50 relative overflow-hidden">
         @yield('content')
     </main>
 
@@ -34,11 +38,3 @@
 </body>
 
 </html>
-
-<script>
-    $(document).ready(function() {
-      setTimeout(function() {
-        $('#videoModal').modal('show');
-      }, 2000);
-    });
-  </script>

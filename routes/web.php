@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RealisationController;
+use App\Models\Realisation;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $realisations = Realisation::all();
+    return view('welcome', compact('realisations'));
 });
 
-Route::get('/propos', function () {
-    return view('propos');
-})->name('propos');
 
 Auth::routes();
 
@@ -37,3 +37,5 @@ Route::post('/archiversession', [SessionController::class, 'archiver'])->name('a
 Route::post('/supprimersession', [SessionController::class, 'destroy'])->name('supprimersession');
 
 Route::post('toggle', [SiteController::class, 'update'])->name('toggle');
+
+Route::resource('realisations', RealisationController::class);

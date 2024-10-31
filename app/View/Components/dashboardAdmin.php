@@ -13,13 +13,15 @@ class dashboardAdmin extends Component
      */
 
     public $users;
+    public $realisations;
     public $lastUser;
     public $sessions;
     public $toggle;
     public $sessionsfalse;
-    public function __construct($users, $lastUser, $sessions, $toggle, $sessionsfalse)
+    public function __construct($users, $realisations, $lastUser, $sessions, $toggle, $sessionsfalse)
     {
         $this->users = $users;
+        $this->realisations = $realisations;
         $this->lastUser = $lastUser;
         $this->sessions = $sessions;
         $this->toggle = $toggle;

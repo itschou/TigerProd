@@ -6,6 +6,7 @@ use App\Mail\MassMail;
 use App\Models\Session;
 use App\Models\User;
 use App\Models\site;
+use App\Models\Realisation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -30,13 +31,14 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
+        $realisations = Realisation::all();
         $lastUser = User::orderBy('created_at', 'desc')->first();
         $toggle = site::first();
         $sessions = Session::all();
         $sessionsfalse = Session::all()->where('etat', '=', true);
-        // dd($sessionsfalse);
+        // dd($realisations);
 
-        return view('home', compact('users', 'lastUser', 'sessions', 'toggle', 'sessionsfalse'));
+        return view('home', compact('users', 'lastUser', 'sessions', 'toggle', 'sessionsfalse', 'realisations'));
     }
 
     public function sendmassmail()

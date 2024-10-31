@@ -7,7 +7,7 @@
         @if (Auth::user()->admin == false)
             <x-dashboard :users='$users' />
         @else
-            <x-dashboard-admin :users='$users' :lastUser='$lastUser' :sessions='$sessions' :toggle='$toggle' :sessionsfalse='$sessionsfalse' />
+            <x-dashboard-admin :realisations='$realisations' :users='$users' :lastUser='$lastUser' :sessions='$sessions' :toggle='$toggle' :sessionsfalse='$sessionsfalse' />
         @endif
 
 

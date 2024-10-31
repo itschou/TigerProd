@@ -2,184 +2,223 @@
     use Carbon\Carbon;
 @endphp
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-11">
-            <div class="col text-center">
-                <img src="favicon.png" class="rounded-circle border border-dark" alt="Photo de profil" width="150">
-            </div>
-            <div class="card-dark">
-                <div class="card-header text-white">{{ __('Dashboard') }}</div>
+<div class="container mx-auto h-auto p-6">
+    <!-- Profile Section -->
+    <div class="flex flex-col items-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Dashboard Administrateur</h1>
+    </div>
 
-                <div class="card-body">
-                    <div class="row mb-4">
-                    </div>
-                    <div class="row row-cols-1 row-cols-md-2 g-4">
-                        <div class="col">
-                            <div class="card bgs-gold">
-                                <div class="particles"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-dark">{{ __('Nombre d\'inscrits') }}</h5>
-                                    <p class="card-text text-dark">{{ count($users) }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card bgs-gold">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-dark">{{ __('Dernier inscrit') }}</h5>
-                                    @if ($lastUser)
-                                        <p class="card-text text-dark">{{ $lastUser->nom }} {{ $lastUser->prenom }}</p>
-                                    @else
-                                        <p class="card-text text-dark">{{ __('Aucun utilisateur inscrit') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card bgs-gold">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-dark">{{ __('Total de sessions') }}</h5>
-                                    <p class="card-text text-dark">{{ count($sessions) }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card bgs-gold">
-                                <div class="card-body text-center">
-                                    {{-- <h5 class="card-title text-dark">{{ __('Promotion :') }} @if ($toggle->show == false) <span class="text-danger"><b>Désactivé</b></span> @else <span class="text-success"><b>Activé</b></span> @endif</h5> --}}
-                                    <span class="card-text text-dark">
-                                        <form action=" {{ route('toggle') }} " method="POST"> @csrf @if ($toggle && $toggle->show == false)
-                                                <button class="btn btn-success">Activer la promotion maintenant</button>
-                                            @else
-                                                <button class="btn btn-danger">Désactiver la promotion
-                                                    maintenant</button>
-                                            @endif
-                                        </form>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
-
-                </div>
-
-            </div>
-
+    <!-- Dashboard Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <!-- Nombre d'inscrits -->
+        <div class="bg-yellow-500 text-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-xl font-semibold">Nombre d'inscrits</h2>
+            <p class="text-2xl">{{ count($users) }}</p>
         </div>
-        <br> <br>
-    </div><br>
-    <br>
-    <br>
-    <div class="row">
-
-        <div class="card">
-
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Demande</th>
-                            <th scope="col">Téléphone</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($sessions as $session)
-                            @if ($session->etat == false)
-                                <tr>
-                                    <td>{{ $session->id }}</td>
-                                    <td>{{ Carbon::parse($session->date)->format('d/m/Y') }}</td>
-                                    <td>{{ $session->type }}</td>
-                                    <td><i class="fas fa-phone"></i> {{ $session->telephone }} </td>
-                                    <td>
-                                        <form action="{{ route('archiversession') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="session_id" value="{{ $session->id }}">
-                                            <button type="submit" class="btn btn-secondary"><i
-                                                    class="fas fa-archive"></i>
-                                                Archiver</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('supprimersession') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="session_id" value="{{ $session->id }}">
-                                            <button type="submit" class="btn btn-danger"><i
-                                                    class="fa-solid fa-trash"></i>
-                                                Supprimer</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endif
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-
-
+        <!-- Dernier inscrit -->
+        <div class="bg-yellow-500 text-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-xl font-semibold">Dernier inscrit</h2>
+            <p class="text-2xl">
+                @if ($lastUser)
+                    {{ $lastUser->nom }} {{ $lastUser->prenom }}
+                @else
+                    Aucun utilisateur inscrit
+                @endif
+            </p>
+        </div>
+        <!-- Total de sessions -->
+        <div class="bg-yellow-500 text-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-xl font-semibold">Total de sessions</h2>
+            <p class="text-2xl">{{ count($sessions) }}</p>
         </div>
     </div>
 
-    <br>
-    <br>
-    <br>
-
-    <div class="row">
-
-        <div class="accordion" id="archiveAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="archiveHeading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#archiveCollapse" aria-expanded="false" aria-controls="archiveCollapse">
-                        Archive @if (count($sessionsfalse) > 0)
-                            <span class="ms-auto">{{ count($sessionsfalse) }} archivé</span>
-                        @else
-                            <span class="ms-auto text-danger">Aucune session archivé</span>
+    <!-- Sessions Table -->
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-bold text-gray-700 mb-4">Liste des Sessions</h2>
+        <div class="overflow-auto">
+            <table class="min-w-full bg-white border border-gray-200">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b">ID</th>
+                        <th class="py-2 px-4 border-b">Date</th>
+                        <th class="py-2 px-4 border-b">Demande</th>
+                        <th class="py-2 px-4 border-b">Téléphone</th>
+                        <th class="py-2 px-4 border-b"></th>
+                        <th class="py-2 px-4 border-b"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($sessions as $session)
+                        @if (!$session->etat)
+                            <tr>
+                                <td class="py-2 px-4 border-b">{{ $session->id }}</td>
+                                <td class="py-2 px-4 border-b">{{ Carbon::parse($session->date)->format('d/m/Y') }}</td>
+                                <td class="py-2 px-4 border-b">{{ $session->type }}</td>
+                                <td class="py-2 px-4 border-b"><i class="fas fa-phone"></i> {{ $session->telephone }}</td>
+                                <td class="py-2 px-4 border-b">
+                                    <form action="{{ route('archiversession') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="session_id" value="{{ $session->id }}">
+                                        <button type="submit" class="bg-gray-500 text-white py-1 px-3 rounded">Archiver</button>
+                                    </form>
+                                </td>
+                                <td class="py-2 px-4 border-b">
+                                    <form action="{{ route('supprimersession') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="session_id" value="{{ $session->id }}">
+                                        <button type="submit" class="bg-red-500 text-white py-1 px-3 rounded">Supprimer</button>
+                                    </form>
+                                </td>
+                            </tr>
                         @endif
-                    </button>
-                </h2>
-                <div id="archiveCollapse" class="accordion-collapse collapse" aria-labelledby="archiveHeading"
-                    data-bs-parent="#archiveAccordion">
-                    <div class="accordion-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Demande</th>
-                                    <th scope="col">Téléphone</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($sessions as $session)
-                                    @if ($session->etat == true && count($sessionsfalse) > 0)
-                                        <tr>
-                                            <td> {{ $session->id }} </td>
-                                            {{-- <td>{{ Carbon::parse($session->date)->format('d/m/Y') }}</td> --}}
-                                            <td>{{ $session->type }}</td>
-                                            <td><i class="fas fa-phone"></i> {{ $session->telephone }} </td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
+    </div>
 
+    <!-- Archive Accordion -->
+    <div class="bg-white p-6 rounded-lg shadow-lg pb-10">
+    <h2 class="text-xl font-semibold text-gray-700 cursor-pointer flex items-center" onclick="toggleAccordion()">
+        Archive
+        <span id="archiveIndicator" class="ml-2 transition-transform transform">+</span>
+        @if (count($sessionsfalse) > 0)
+            <span class="ml-auto text-sm">{{ count($sessionsfalse) }} sessions archivées</span>
+        @else
+            <span class="ml-auto text-sm text-red-500">Aucune session archivée</span>
+        @endif
+    </h2>
 
+    <div id="archiveCollapse" class="hidden mt-4 transition-all duration-300 ease-out overflow-hidden">
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b">ID</th>
+                    <th class="py-2 px-4 border-b">Date</th>
+                    <th class="py-2 px-4 border-b">Demande</th>
+                    <th class="py-2 px-4 border-b">Téléphone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($sessions as $session)
+                    @if ($session->etat && count($sessionsfalse) > 0)
+                        <tr>
+                            <td class="py-2 px-4 border-b">{{ $session->id }}</td>
+                            <td class="py-2 px-4 border-b">{{ Carbon::parse($session->date)->format('d/m/Y') }}</td>
+                            <td class="py-2 px-4 border-b">{{ $session->type }}</td>
+                            <td class="py-2 px-4 border-b">
+                                <i class="fas fa-phone"></i> {{ $session->telephone }}
+                            </td>
+                        </tr>
+                    @endif
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 
+<!-- Formulaire pour Ajouter une Réalisation -->
+<div class="bg-white p-6 rounded-lg shadow-lg mb-6 mt-5">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Ajouter une Réalisation</h2>
+        <form action="{{ route('realisations.store') }}" method="POST">
+            @csrf
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input type="text" name="artist_name" placeholder="Nom de l'artiste" class="border p-2 rounded" required>
+                <input type="text" name="music_name" placeholder="Nom de la musique" class="border p-2 rounded" required>
+                <input type="url" name="youtube_link" placeholder="Lien YouTube" class="border p-2 rounded" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Ajouter</button>
+        </form>
+    </div>
 
-<style>
-    .bg-orange {
-        background-color: #f3b33d !important;
+    <!-- Liste des Réalisations -->
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Réalisations</h2>
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b">Nom de l'artiste</th>
+                    <th class="py-2 px-4 border-b">Nom de la musique</th>
+                    <th class="py-2 px-4 border-b">Lien YouTube</th>
+                    <th class="py-2 px-4 border-b">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($realisations as $realisation)
+                    <tr>
+                        <td class="py-2 px-4 border-b">{{ $realisation->artist_name }}</td>
+                        <td class="py-2 px-4 border-b">{{ $realisation->music_name }}</td>
+                        <td class="py-2 px-4 border-b">
+                            <a href="{{ $realisation->youtube_link }}" target="_blank" class="text-blue-500">Voir la vidéo</a>
+                        </td>
+                        <td class="py-2 px-4 border-b">
+                            <!-- Bouton Modifier -->
+                            <button onclick="openEditModal({{ $realisation }})" class="bg-yellow-500 text-white py-1 px-3 rounded">Modifier</button>
+                            
+                            <!-- Bouton Supprimer -->
+                            <form action="{{ route('realisations.destroy', $realisation->id) }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white py-1 px-3 rounded">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<!-- Modal de Modification -->
+<div id="editModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-1/2">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Modifier la Réalisation</h2>
+        <form id="editForm" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input type="text" id="editArtistName" name="artist_name" class="border p-2 rounded" required>
+                <input type="text" id="editMusicName" name="music_name" class="border p-2 rounded" required>
+                <input type="url" id="editYoutubeLink" name="youtube_link" class="border p-2 rounded" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Mettre à jour</button>
+            <button type="button" onclick="closeEditModal()" class="bg-gray-500 text-white py-2 px-4 rounded">Annuler</button>
+        </form>
+    </div>
+</div>
+</div>
+
+<script>
+    function toggleAccordion() {
+        const archiveCollapse = document.getElementById('archiveCollapse');
+        const archiveIndicator = document.getElementById('archiveIndicator');
+
+        archiveCollapse.classList.toggle('hidden');
+
+        // Changer l'indicateur en + ou - en fonction de l'état de l'accordéon
+        if (archiveCollapse.classList.contains('hidden')) {
+            archiveIndicator.textContent = '+';
+        } else {
+            archiveIndicator.textContent = '-';
+        }
     }
-</style>
+
+    function openEditModal(realisation) {
+        // Remplir le formulaire avec les données de la réalisation à modifier
+        document.getElementById('editArtistName').value = realisation.artist_name;
+        document.getElementById('editMusicName').value = realisation.music_name;
+        document.getElementById('editYoutubeLink').value = realisation.youtube_link;
+
+        // Définir l'action du formulaire avec l'ID de la réalisation
+        document.getElementById('editForm').action = `/realisations/${realisation.id}`;
+
+        // Afficher le modal
+        document.getElementById('editModal').classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+        // Cacher le modal
+        document.getElementById('editModal').classList.add('hidden');
+    }
+</script>

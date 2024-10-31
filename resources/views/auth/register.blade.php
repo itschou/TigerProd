@@ -8,6 +8,7 @@
       <p class="mt-4 text-gray-500">
         Crée un compte pour accéder à toutes les fonctionnalités.
       </p>
+      <a href="/" class="underline">Page d'accueil</a>
     </div>
 
     <form method="POST" action="{{ route('register') }}" class="mx-auto mt-8 max-w-md space-y-4">
