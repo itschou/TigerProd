@@ -579,7 +579,7 @@
 <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
     Questions fréquentes
     </h2>
-<div class="divide-y divide-gray-100 max-w-[50%] w-full rounded-xl border border-gray-100 bg-white mt-5">
+<div class="divide-y divide-gray-100 lg:max-w-[50%] px-2 lg:px-0 w-full rounded-xl border border-gray-100 bg-white mt-5">
 @foreach ($questions as $item)
   <details class="group p-6 [&_summary::-webkit-details-marker]:hidden">
     <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
